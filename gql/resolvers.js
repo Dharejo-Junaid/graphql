@@ -22,6 +22,20 @@ const resolvers = {
       );
     },
   },
+
+  Mutation: {
+    addEmoji: async (_, { newEmoji }) => {
+      return await Emoji.create(newEmoji);
+    },
+
+    updateEmoji: async (_, { _id, newEmoji }) => {
+      return await Emoji.findByIdAndUpdate(_id, newEmoji, { new: true });
+    },
+
+    deleteEmoji: async (_, { _id }) => {
+      return await Emoji.findByIdAndDelete(_id);
+    },
+  },
 };
 
 module.exports = resolvers;

@@ -1,6 +1,6 @@
 const typeDefs = `#graphql
     type Emoji {
-        _id: ID,
+        _id: ID!,
         slug: String!,
         character: String!,
         unicodeName: String!,
@@ -9,7 +9,16 @@ const typeDefs = `#graphql
         subGroup: String!
     },
 
-    input EmojiFilter {
+    input InputEmoji {
+        slug: String!,
+        character: String!,
+        unicodeName: String!,
+        codePoint: String!,
+        group: String!,
+        subGroup: String!
+    },
+
+    input EmojiProps {
         _id: ID,
         slug: String,
         character: String,
@@ -20,9 +29,15 @@ const typeDefs = `#graphql
     },
 
     type Query {
-        getEmojis(where: EmojiFilter): [Emoji],
+        getEmojis(where: EmojiProps): [Emoji],
         getEmojiById(_id: ID!): Emoji,
         getRandomEmoji: Emoji
+    },
+
+    type Mutation {
+        addEmoji(newEmoji: InputEmoji!): Emoji,
+        updateEmoji(_id: ID!, newEmoji: EmojiProps!): Emoji,
+        deleteEmoji(_id: ID!): Emoji,
     }
 `;
 
