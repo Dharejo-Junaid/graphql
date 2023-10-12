@@ -6,7 +6,9 @@ const typeDefs = `#graphql
         unicodeName: String!,
         codePoint: String!,
         group: String!,
-        subGroup: String!
+        subGroup: String!,
+        groupRelated: [Emoji!],
+        subGroupRelated: [Emoji!]
     },
 
     input InputEmoji {

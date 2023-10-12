@@ -25,6 +25,17 @@ git clone https://github.com/Dharejo-Junaid/emojis
 npm install
 ```
 
+3. Start server on port 5000 using:
+
+```bash
+npm start
+```
+
+4. open your browser and type:
+```bash
+http://localhost:5000/graphql
+```
+
 ## API Endpoints
 ### Queries:
 1. getEmojis: Retrieve emojis based on a provided filter.

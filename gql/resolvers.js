@@ -36,6 +36,16 @@ const resolvers = {
       return await Emoji.findByIdAndDelete(_id);
     },
   },
+
+  Emoji: {
+    groupRelated: async (emoji) => {
+      return await Emoji.find({ group: emoji.group });
+    },
+
+    subGroupRelated: async (emoji) => {
+      return await Emoji.find({ subGroup: emoji.subGroup });
+    },
+  },
 };
 
 module.exports = resolvers;
